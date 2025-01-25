@@ -36,10 +36,6 @@ relationship 2ec7ba8c-c407-4318-837e-2beccfcb2cd0
 	fromColumn: d_tracks.AlbumId
 	toColumn: d_albums.AlbumId
 
-relationship 46159e96-8a9a-487c-8404-07f83d728f1b
-	fromColumn: d_albums.ArtistId
-	toColumn: d_artists.ArtistId
-
 relationship c8d37747-8264-407a-b147-177841240de2
 	fromColumn: f_invoice_items.CustomerId
 	toColumn: d_customers.CustomerId
@@ -47,4 +43,8 @@ relationship c8d37747-8264-407a-b147-177841240de2
 relationship c7284954-528c-4446-a7af-d4e10b89fd98
 	fromColumn: f_invoice_items.InvoiceDate
 	toColumn: calendar.Date
+
+relationship 0ded62fc-cd3b-6228-57c5-d96d033eb109
+	fromColumn: d_albums.ArtistId
+	toColumn: d_artists.ArtistId
 

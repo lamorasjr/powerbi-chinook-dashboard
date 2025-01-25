@@ -1,10 +1,10 @@
 table d_artists
-	lineageTag: e1a925e1-e909-44fa-a864-8e31a0448b75
+	lineageTag: 01f56fe4-8814-4e88-bce8-9dc82712c0e5
 
 	column ArtistId
 		dataType: int64
 		formatString: 0
-		lineageTag: b955d0c4-b101-4be4-ba71-d57df13a5899
+		lineageTag: 777d8913-738c-4586-a43b-61fa7a380dde
 		summarizeBy: none
 		sourceColumn: ArtistId
 
@@ -12,13 +12,13 @@ table d_artists
 
 	column ArtistName
 		dataType: string
-		lineageTag: a8510126-ba0f-4c8a-8258-232341747eec
+		lineageTag: 6fac6df9-6c85-491c-8c72-bf25157a1d7c
 		summarizeBy: none
 		sourceColumn: ArtistName
 
 		annotation SummarizationSetBy = Automatic
 
-	partition d_artists-60ec89e2-7c0e-40a4-935f-a135d7082e0f = m
+	partition d_artists = m
 		mode: import
 		source =
 				let
@@ -29,7 +29,7 @@ table d_artists
 				in
 				    #"Renamed Columns"
 
-	annotation PBI_ResultType = Table
-
 	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
 

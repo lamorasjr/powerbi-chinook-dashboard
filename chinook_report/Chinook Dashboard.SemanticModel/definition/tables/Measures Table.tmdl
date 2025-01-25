@@ -8,31 +8,31 @@ table 'Measures Table'
 			    f_invoice_items[Quantity] * f_invoice_items[UnitPrice]
 			)
 		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
-		displayFolder: Total Sales
+		displayFolder: Revenue
 		lineageTag: 03975a95-afc6-4784-bfa6-dfb8a80b9309
 
 		changedProperty = FormatString
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Order Qty' =
+	measure '# Track Orders' =
+			
+			DISTINCTCOUNT(
+			    f_invoice_items[TrackId]
+			)
+		formatString: #,0
+		displayFolder: Trackes
+		lineageTag: 443bca69-c096-4697-aede-da0861b25b82
+
+		changedProperty = FormatString
+
+	measure '# Orders' =
 			
 			DISTINCTCOUNT(
 			    f_invoice_items[InvoiceId]
 			)
 		formatString: #,0
 		displayFolder: Orders
-		lineageTag: 443bca69-c096-4697-aede-da0861b25b82
-
-		changedProperty = FormatString
-
-	measure 'Tracks Sold' =
-			
-			SUM(
-			    f_invoice_items[Quantity]
-			)
-		formatString: #,0
-		displayFolder: Tracks
 		lineageTag: 070647c1-8f60-48c1-be21-c1a46516be9d
 
 		changedProperty = FormatString
@@ -48,17 +48,33 @@ table 'Measures Table'
 			    )
 			)
 		formatString: \$#,0;(\$#,0);\$#,0
-		displayFolder: Total Sales
+		displayFolder: Revenue
 		lineageTag: d918b45d-ef53-46c6-93ba-80f92526c8c3
 
 		changedProperty = FormatString
 
 		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
 
-	measure 'Order Qty LY' =
+	measure '# Track Orders PY' =
 			
 			CALCULATE(
-			    [Order Qty],
+			    [# Track Orders],
+			    DATEADD(
+			        'calendar'[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		formatString: #,0
+		displayFolder: Trackes
+		lineageTag: bf7e8064-e6c7-4e92-9e0e-480466cd07bd
+
+		changedProperty = FormatString
+
+	measure '# Orders PY' =
+			
+			CALCULATE(
+			    [# Orders],
 			    DATEADD(
 			        'calendar'[Date],
 			        -1,
@@ -67,22 +83,6 @@ table 'Measures Table'
 			)
 		formatString: #,0
 		displayFolder: Orders
-		lineageTag: bf7e8064-e6c7-4e92-9e0e-480466cd07bd
-
-		changedProperty = FormatString
-
-	measure 'Tracks Sold LY' =
-			
-			CALCULATE(
-			    [Tracks Sold],
-			    DATEADD(
-			        'calendar'[Date],
-			        -1,
-			        YEAR
-			    )
-			)
-		formatString: #,0
-		displayFolder: Tracks
 		lineageTag: b8f39c51-f8bd-4d0f-b52d-f5cea09adc66
 
 		changedProperty = FormatString
@@ -96,35 +96,35 @@ table 'Measures Table'
 			)
 			-1
 		formatString: 0.0%;-0.0%;0.0%
-		displayFolder: Total Sales
+		displayFolder: Revenue
 		lineageTag: 775ca90d-c476-4f62-9f1a-e447cdbcc235
 
 		changedProperty = FormatString
 
-	measure 'Order Qty YoY' =
+	measure '# Track Orders YoY' =
 			
 			DIVIDE(
-			    [Order Qty],
-			    [Order Qty LY],
+			    [# Track Orders],
+			    [# Track Orders PY],
+			    0
+			)
+			-1
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Trackes
+		lineageTag: aa62c13f-1c75-4705-b5bc-b911dd53660c
+
+		changedProperty = FormatString
+
+	measure '# Orders YoY' =
+			
+			DIVIDE(
+			    [# Orders],
+			    [# Orders PY],
 			    0
 			)
 			-1
 		formatString: 0.0%;-0.0%;0.0%
 		displayFolder: Orders
-		lineageTag: aa62c13f-1c75-4705-b5bc-b911dd53660c
-
-		changedProperty = FormatString
-
-	measure 'Tracks Sold YoY' =
-			
-			DIVIDE(
-			    [Tracks Sold],
-			    [Tracks Sold LY],
-			    0
-			)
-			-1
-		formatString: 0.0%;-0.0%;0.0%
-		displayFolder: Tracks
 		lineageTag: cee2264e-24c1-4c96-b2b9-7ecd97ef919a
 
 		changedProperty = FormatString
@@ -173,15 +173,6 @@ table 'Measures Table'
 		lineageTag: 8f55ebf2-1188-4a20-a250-a5f2ababc248
 
 		changedProperty = FormatString
-
-	measure 'Github Url' = "https://github.com/lamorasjr/"
-		displayFolder: Urls
-		lineageTag: 8e2e71a6-8161-4d26-8dcc-d5a57db461f6
-		dataCategory: WebUrl
-
-	measure 'Dataset Url' = "https://www.sqlitetutorial.net/sqlite-sample-database/"
-		displayFolder: Urls
-		lineageTag: ba230a03-0d78-4ee8-9071-74fae87bb355
 
 	partition 'Measures Table-7b54dd6a-ea6a-476c-9c69-d1758aeeaf0e' = m
 		mode: import

@@ -19,7 +19,6 @@ ref table DateTableTemplate_ebcc13a1-a56b-4e12-95a3-4ffed5d62693
 ref table d_playlists
 ref table d_tracks
 ref table d_albums
-ref table d_artists
 ref table d_customers
 ref table d_empolyees
 ref table LocalDateTable_2ccbc06a-b949-4d1e-9f33-8f01f36cba14
@@ -29,6 +28,7 @@ ref table f_invoice_items
 ref table d_media_types
 ref table calendar
 ref table 'Measures Table'
+ref table d_artists
 
 ref cultureInfo en-US
 

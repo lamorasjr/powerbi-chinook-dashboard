@@ -2004,406 +2004,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "d_artist": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "d_artists"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "d artist": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "d_artists": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "artist": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "d painter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "d illustrator": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "d drawer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "d sketcher": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "d cartoonist": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "d sculptor": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.5
-			          }
-			        },
-			        {
-			          "painter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "illustrator": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "drawer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sketcher": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        }
-			      ]
-			    },
-			    "d_artist.artist_id": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "d_artists",
-			          "ConceptualProperty": "ArtistId"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "artist id": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "id": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "ArtistId": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "artist": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "artist identification": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "artist identity": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "artist identifier": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "artist credential": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "painter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "illustrator": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "drawer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sketcher": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "cartoonist": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sculptor": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        }
-			      ],
-			      "NameType": "Identifier"
-			    },
-			    "d_artist.artist_name": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "d_artists",
-			          "ConceptualProperty": "ArtistName"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "artist name": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "name": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "ArtistName": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "artist": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        },
-			        {
-			          "artist nickname": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "artist title": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "artist label": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "artist tag": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "painter": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "illustrator": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "drawer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sketcher": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "cartoonist": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "sculptor": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        }
-			      ],
-			      "NameType": "Name"
-			    },
 			    "d_customer": {
 			      "Definition": {
 			        "Binding": {
@@ -3045,7 +2645,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "state or province": {
 			            "State": "Generated",
@@ -3669,7 +3271,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "location": {
 			            "Type": "Noun",
@@ -5413,7 +5017,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "state or province": {
 			            "State": "Generated",
@@ -5892,7 +5498,9 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "location": {
 			            "Type": "Noun",
@@ -6382,7 +5990,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Genre Type": {
+			          "Track Genre": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -6392,7 +6000,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Track Genre": {
+			          "Genre Type": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9316,7 +8924,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Net Sales": {
+			          "Revenue": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9331,7 +8939,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Order Qty"
+			          "ConceptualProperty": "# Track Orders"
 			        }
 			      },
 			      "State": "Generated",
@@ -9342,7 +8950,17 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Orders": {
+			          "Track Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Tracks Sold": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9357,7 +8975,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Tracks Sold"
+			          "ConceptualProperty": "# Orders"
 			        }
 			      },
 			      "State": "Generated",
@@ -9466,6 +9084,26 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.475
 			          }
+			        },
+			        {
+			          "Current Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9551,7 +9189,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Order Qty LY"
+			          "ConceptualProperty": "# Track Orders PY"
 			        }
 			      },
 			      "State": "Generated",
@@ -9577,7 +9215,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Tracks Sold LY"
+			          "ConceptualProperty": "# Orders PY"
 			        }
 			      },
 			      "State": "Generated",
@@ -9644,7 +9282,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "YoY%": {
+			          "Revenue Y.o.Y.%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9655,6 +9293,26 @@ cultureInfo en-US
 			        },
 			        {
 			          "YoY %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Y.o.Y%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Y.o.Y.%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9669,7 +9327,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Order Qty YoY"
+			          "ConceptualProperty": "# Track Orders YoY"
 			        }
 			      },
 			      "State": "Generated",
@@ -9680,7 +9338,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "YoY.%": {
+			          "YoY %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9690,7 +9348,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "YoY %": {
+			          "Track Orders Y.o.Y.%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9705,7 +9363,7 @@ cultureInfo en-US
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "Measures Table",
-			          "ConceptualProperty": "Tracks Sold YoY"
+			          "ConceptualProperty": "# Orders YoY"
 			        }
 			      },
 			      "State": "Generated",
@@ -9716,7 +9374,37 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Order Y.o.Y%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "YoY %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Y.o.Y%": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Y.o.Y.%": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9925,6 +9613,27 @@ cultureInfo en-US
 			        },
 			        {
 			          "YoY %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "d_artists.artistname": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "d_artists",
+			          "ConceptualProperty": "ArtistName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Artist": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -13072,98 +12781,6 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "customer_ids_are_names_IDs_of_d_customers"
-			        }
-			      ]
-			    },
-			    "d_artist_has_artist_name": {
-			      "Binding": {
-			        "ConceptualEntity": "d_artists"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "d_artist": {
-			          "Target": {
-			            "Entity": "d_artist"
-			          }
-			        },
-			        "d_artist.artist_name": {
-			          "Target": {
-			            "Entity": "d_artist.artist_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_artist"
-			            },
-			            "Object": {
-			              "Role": "d_artist.artist_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_artists_have_artist_names"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "d_artist"
-			            },
-			            "Name": {
-			              "Role": "d_artist.artist_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "artist_names_are_names_IDs_of_d_artists"
-			        }
-			      ]
-			    },
-			    "d_artist_has_artist_id": {
-			      "Binding": {
-			        "ConceptualEntity": "d_artists"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "d_artist": {
-			          "Target": {
-			            "Entity": "d_artist"
-			          }
-			        },
-			        "d_artist.artist_id": {
-			          "Target": {
-			            "Entity": "d_artist.artist_id"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "d_artist"
-			            },
-			            "Object": {
-			              "Role": "d_artist.artist_id"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "d_artists_have_artist_ids"
-			        },
-			        {
-			          "Name": {
-			            "Subject": {
-			              "Role": "d_artist"
-			            },
-			            "Name": {
-			              "Role": "d_artist.artist_id"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "artist_ids_are_names_IDs_of_d_artists"
 			        }
 			      ]
 			    },

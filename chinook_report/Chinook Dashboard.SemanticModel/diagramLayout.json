@@ -10,130 +10,128 @@
       "nodes": [
         {
           "location": {
-            "x": 292.22798795235889,
-            "y": 75.3849623462428
+            "x": 301.49664913204822,
+            "y": 242.56804473912561
           },
           "nodeIndex": "d_albums",
+          "nodeLineageTag": "0ca09ff6-026e-41f4-a3a9-b350c368bfe3",
           "size": {
-            "height": 152,
-            "width": 234
-          },
-          "zIndex": 2
-        },
-        {
-          "location": {
-            "x": 0,
-            "y": 0
-          },
-          "nodeIndex": "d_artists",
-          "size": {
-            "height": 149.296,
-            "width": 234
-          },
-          "zIndex": 3
-        },
-        {
-          "location": {
-            "x": 954.80873922790079,
-            "y": 203.45385466755667
-          },
-          "nodeIndex": "d_customers",
-          "size": {
-            "height": 154.92100000000008,
+            "height": 157.48401659873406,
             "width": 234
           },
           "zIndex": 4
         },
         {
           "location": {
-            "x": 1195.9693515822396,
-            "y": 0
+            "x": 855.57105186173374,
+            "y": 366.78254845770653
           },
-          "nodeIndex": "d_empolyees",
+          "nodeIndex": "d_customers",
+          "nodeLineageTag": "92e5ee67-9050-4edf-9275-30ab6ff44d17",
           "size": {
-            "height": 141.61100000000005,
+            "height": 171.46061456102788,
             "width": 234
           },
           "zIndex": 5
         },
         {
           "location": {
-            "x": 0,
-            "y": 220.24716520404235
+            "x": 935.47042224605127,
+            "y": 43.416488222698092
           },
-          "nodeIndex": "d_genres",
+          "nodeIndex": "d_empolyees",
+          "nodeLineageTag": "a0f7f0b6-77bb-4121-9f78-6011425f30ea",
           "size": {
-            "height": 131.07112206921181,
+            "height": 168.48787366167028,
             "width": 234
           },
           "zIndex": 6
         },
         {
           "location": {
-            "x": 0,
-            "y": 364.53836827886988
+            "x": 620.23554603854382,
+            "y": 121.55276264798655
+          },
+          "nodeIndex": "d_genres",
+          "nodeLineageTag": "81c7b240-cf4c-4ad0-8d67-5d52c8dce099",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 12.404710920770896,
+            "y": 393.48269376066861
           },
           "nodeIndex": "d_media_types",
+          "nodeLineageTag": "60d9dc87-f354-4af5-a5b7-6a3d8ddba3f4",
           "size": {
-            "height": 141.8200493114532,
+            "height": 145,
             "width": 234
           },
           "zIndex": 9
         },
         {
           "location": {
-            "x": 551.11710747181507,
-            "y": 168.10982133205678
+            "x": 317.49505179729687,
+            "y": 844.1665665140697
           },
           "nodeIndex": "d_playlist_track",
+          "nodeLineageTag": "375e0e3a-0428-41c0-85c6-166bf94357b2",
           "size": {
-            "height": 158.89766876824714,
+            "height": 158.8976687682472,
             "width": 234
           },
           "zIndex": 10
         },
         {
           "location": {
-            "x": 787.85184835163784,
-            "y": 0
+            "x": 14.472162740899364,
+            "y": 700.86616702355479
           },
           "nodeIndex": "d_playlists",
+          "nodeLineageTag": "ffdc067c-509a-4826-aa33-85f766aa252a",
           "size": {
-            "height": 157.17565965751243,
+            "height": 145,
             "width": 234
           },
           "zIndex": 7
         },
         {
           "location": {
-            "x": 331.13684856409759,
-            "y": 342.05194639066536
+            "x": 573.02871151912962,
+            "y": 457.82924831786028
           },
           "nodeIndex": "d_tracks",
+          "nodeLineageTag": "e0440ef3-fe56-47af-87bf-6757e6c4d9af",
           "size": {
-            "height": 306.11629828756236,
+            "height": 301.98139464730536,
             "width": 234
           },
           "zIndex": 8
         },
         {
           "location": {
-            "x": 692.76757948824229,
-            "y": 389.02559197942912
+            "x": 953.26650882443073,
+            "y": 688.80610589805872
           },
           "nodeIndex": "f_invoice_items",
+          "nodeLineageTag": "ecb56136-935c-42f8-9d7f-c7d5d6b94b25",
           "size": {
             "height": 304.44492065746545,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 3
         },
         {
           "location": {
-            "x": 1105.7838090599178,
-            "y": 416.87590416944482
+            "x": 1289.7870210513524,
+            "y": 499.57397697458396
           },
           "nodeIndex": "calendar",
+          "nodeLineageTag": "b08428c9-42ae-4049-bcbe-50418638b909",
           "size": {
             "height": 237.94080391005031,
             "width": 234
@@ -142,19 +140,33 @@
         },
         {
           "location": {
-            "x": 1547,
-            "y": 0
+            "x": 1292.703426124197,
+            "y": 41.349036402569588
           },
           "nodeIndex": "Measures Table",
+          "nodeLineageTag": "0239d0b3-faea-4ab2-bc54-2836b5779254",
           "size": {
-            "height": 104,
+            "height": 403.78051391862954,
             "width": 234
           },
-          "zIndex": 0
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 63.328693790149828,
+            "y": 8.7978901514237577
+          },
+          "nodeIndex": "d_artists",
+          "nodeLineageTag": "01f56fe4-8814-4e88-bce8-9dc82712c0e5",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 2
         }
       ],
       "name": "All tables",
-      "zoomValue": 74.122777764195945,
+      "zoomValue": 52.382164108326222,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
