@@ -14,8 +14,8 @@ Additionally, this project includes a Python script to extract table data from a
 ## Table of Contents
 - [Key Features](#key-features)
 - [Analysis and Insights](#analysis-and-insights)
-    - [1. Revenue and Sales performance over 2023](#1-revenue-and-sales-performance-over-2023)
-    - [2. Best Seler and Most Revenue Artists](#2-best-seler-and-most-revenue-artists)
+    - [1. Revenue and Sales performance in 2023](#1-revenue-and-sales-performance-in-2023)
+    - [2. Best sellers and most revenue artists in 2023](#2-best-sellers-and-most-revenue-artists-in-2023)
     - [3. Top 3 tracks genre type most sold in 2023](#3-top-3-tracks-genre-type-most-sold-in-2023)
 - [Installation](#installation)
     - [Prerequisites](#prerequisites)
@@ -30,7 +30,7 @@ Additionally, this project includes a Python script to extract table data from a
 - **SQLite CSV Extractor (Python script):** Located in `/src`
 
 ## Analysis and Insights
-### 1. Revenue and Sales performance over 2023
+### 1. Revenue and sales performance in 2023
 - In 2023 (1), sales performance declined compared to the previous year, with all key performance indicators (KPIs) showing a decrease: Revenue (-5.6% vs. PY), Orders (-3.6% vs. PY), and Tracks Sold (-3.6% vs. PY) (2). The most significant drop occurred during the first two quarters (Q1 and Q2).
 
 - A deeper analysis at the Sales Agent level (3) revealed that the agent with the highest margin contribution experienced a sharp decline, with Orders down by -23.8% vs. PY and Revenue down by -33.5% vs. PY.
@@ -40,7 +40,7 @@ Additionally, this project includes a Python script to extract table data from a
     <img src=assets\insight_1.png alt="insight_1" width="500"/>
 
 
-### 2. Best Seler and Most Revenue Artists
+### 2. Best sellers and most revenue artists in 2023
 
 - In 2023 (1), Iron Maiden was the best-selling artist with 36 tracks sold and generated the highest revenue, totaling $36.6 (2).
 
