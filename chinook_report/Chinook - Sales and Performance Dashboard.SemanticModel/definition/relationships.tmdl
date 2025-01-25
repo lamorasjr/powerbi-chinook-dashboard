@@ -1,0 +1,50 @@
+relationship d3df8b6c-5681-49f8-9ffa-ceb668eb969f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: d_empolyees.BirthDate
+	toColumn: LocalDateTable_2ccbc06a-b949-4d1e-9f33-8f01f36cba14.Date
+
+relationship 52553dff-99fb-4793-9449-b7b794f631e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: d_empolyees.HireDate
+	toColumn: LocalDateTable_2df1777d-611f-4633-8d8e-a17e09acee59.Date
+
+relationship 9a3fb221-4669-49aa-8f26-f6f455b3f452
+	fromColumn: d_customers.SupportRepId
+	toColumn: d_empolyees.EmployeeId
+
+relationship 7b023b8f-bda1-4418-840b-f4c3b63dcec4
+	fromColumn: f_invoice_items.TrackId
+	toColumn: d_tracks.TrackId
+
+relationship 7f7eb512-5a54-43b1-9bc2-16632a9500aa
+	fromColumn: d_tracks.MediaTypeId
+	toColumn: d_media_types.MediaTypeId
+
+relationship 3af04d38-b265-414e-a4f7-8d7535e56999
+	fromColumn: d_tracks.GenreId
+	toColumn: d_genres.GenreId
+
+relationship 8b450590-7349-4618-86da-966071ec6553
+	fromColumn: d_playlist_track.TrackId
+	toColumn: d_tracks.TrackId
+
+relationship 2a3d19a7-ee95-4a3d-982c-8c43cd068b98
+	fromColumn: d_playlist_track.PlaylistId
+	toColumn: d_playlists.PlaylistId
+
+relationship 2ec7ba8c-c407-4318-837e-2beccfcb2cd0
+	fromColumn: d_tracks.AlbumId
+	toColumn: d_albums.AlbumId
+
+relationship 46159e96-8a9a-487c-8404-07f83d728f1b
+	fromColumn: d_albums.ArtistId
+	toColumn: d_artists.ArtistId
+
+relationship c8d37747-8264-407a-b147-177841240de2
+	fromColumn: f_invoice_items.CustomerId
+	toColumn: d_customers.CustomerId
+
+relationship c7284954-528c-4446-a7af-d4e10b89fd98
+	fromColumn: f_invoice_items.InvoiceDate
+	toColumn: calendar.Date
+

@@ -1,0 +1,9 @@
+{
+  "version": "4.0",
+  "datasetReference": {
+    "byPath": {
+      "path": "../Chinook - Sales and Performance Dashboard.SemanticModel"
+    },
+    "byConnection": null
+  }
+}

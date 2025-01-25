@@ -1,0 +1,166 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 292.22798795235889,
+            "y": 75.3849623462428
+          },
+          "nodeIndex": "d_albums",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "d_artists",
+          "size": {
+            "height": 149.296,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 954.80873922790079,
+            "y": 203.45385466755667
+          },
+          "nodeIndex": "d_customers",
+          "size": {
+            "height": 154.92100000000008,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1195.9693515822396,
+            "y": 0
+          },
+          "nodeIndex": "d_empolyees",
+          "size": {
+            "height": 141.61100000000005,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 220.24716520404235
+          },
+          "nodeIndex": "d_genres",
+          "size": {
+            "height": 131.07112206921181,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 364.53836827886988
+          },
+          "nodeIndex": "d_media_types",
+          "size": {
+            "height": 141.8200493114532,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 551.11710747181507,
+            "y": 168.10982133205678
+          },
+          "nodeIndex": "d_playlist_track",
+          "size": {
+            "height": 158.89766876824714,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 787.85184835163784,
+            "y": 0
+          },
+          "nodeIndex": "d_playlists",
+          "size": {
+            "height": 157.17565965751243,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 331.13684856409759,
+            "y": 342.05194639066536
+          },
+          "nodeIndex": "d_tracks",
+          "size": {
+            "height": 306.11629828756236,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 692.76757948824229,
+            "y": 389.02559197942912
+          },
+          "nodeIndex": "f_invoice_items",
+          "size": {
+            "height": 304.44492065746545,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 1105.7838090599178,
+            "y": 416.87590416944482
+          },
+          "nodeIndex": "calendar",
+          "size": {
+            "height": 237.94080391005031,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 1547,
+            "y": 0
+          },
+          "nodeIndex": "Measures Table",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 74.122777764195945,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

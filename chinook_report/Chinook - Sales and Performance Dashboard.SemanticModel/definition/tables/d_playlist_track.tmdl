@@ -1,0 +1,35 @@
+table d_playlist_track
+	lineageTag: 375e0e3a-0428-41c0-85c6-166bf94357b2
+
+	column PlaylistId
+		dataType: int64
+		formatString: 0
+		lineageTag: 741ac005-8ebe-4665-af9f-cdb352fd3b1c
+		summarizeBy: none
+		sourceColumn: PlaylistId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackId
+		dataType: int64
+		formatString: 0
+		lineageTag: 349b697e-ac92-444b-a32a-21c6135e0e67
+		summarizeBy: none
+		sourceColumn: TrackId
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_playlist_track-ac40d722-898c-4e36-b739-dca439687d46 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "playlist_track.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"PlaylistId", Int64.Type}, {"TrackId", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

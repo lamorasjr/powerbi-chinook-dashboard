@@ -1,0 +1,35 @@
+table d_genres
+	lineageTag: 81c7b240-cf4c-4ad0-8d67-5d52c8dce099
+
+	column GenreId
+		dataType: int64
+		formatString: 0
+		lineageTag: e881fcdc-d539-459b-9b50-67169f09d97c
+		summarizeBy: none
+		sourceColumn: GenreId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GenreName
+		dataType: string
+		lineageTag: d532f7d7-4ecd-497f-b74e-8021238eaa3b
+		summarizeBy: none
+		sourceColumn: GenreName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_genres-831655e5-dddb-4938-b102-d1f005662d35 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "genres.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GenreId", Int64.Type}, {"Name", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Name", "GenreName"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

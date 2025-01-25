@@ -1,0 +1,141 @@
+table f_invoice_items
+	lineageTag: ecb56136-935c-42f8-9d7f-c7d5d6b94b25
+
+	column InvoiceId
+		dataType: int64
+		formatString: 0
+		lineageTag: fb792934-bc78-4ed8-b7a5-a878f1db23bf
+		summarizeBy: count
+		sourceColumn: InvoiceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackId
+		dataType: int64
+		formatString: 0
+		lineageTag: e799a95f-10ef-4d09-bc1c-933c441bbf64
+		summarizeBy: none
+		sourceColumn: TrackId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1f63c14f-05f3-4620-9be0-ea6b3bbb9ff1
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: fcdd6d4d-2da3-44ce-8305-bfe2cef49d4b
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column CustomerId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0606d9ec-382b-4adf-bb3b-0a08ea5345af
+		summarizeBy: none
+		sourceColumn: CustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column InvoiceDate
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 1858b4cc-c70d-4d42-a1ba-cec621bd2547
+		summarizeBy: none
+		sourceColumn: InvoiceDate
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column BillingAddress
+		dataType: string
+		lineageTag: bb81bc84-f1a0-4ebe-be80-760aac6c8baa
+		summarizeBy: none
+		sourceColumn: BillingAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingCity
+		dataType: string
+		lineageTag: dc7a8274-468b-4652-89cc-6035b3cdffbc
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: BillingCity
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingState
+		dataType: string
+		lineageTag: 7439a526-1f8c-46b4-8470-f056298710a9
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: BillingState
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingCountry
+		dataType: string
+		lineageTag: 94c38350-83f2-40c1-85da-0561180d7225
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: BillingCountry
+
+		annotation SummarizationSetBy = Automatic
+
+	column BillingPostalCode
+		dataType: string
+		lineageTag: 74c0af90-803f-43c4-ae34-718f3503a2b5
+		summarizeBy: none
+		sourceColumn: BillingPostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Store Hierarchy'
+		lineageTag: 0b84383b-6dba-44a6-96a8-7110e2f5cbfc
+
+		level BillingCountry
+			lineageTag: 05de6956-8214-436e-96dc-3ff3869c8a8f
+			column: BillingCountry
+
+		level BillingState
+			lineageTag: 5899de51-3087-410b-9e7a-36f0f5540fa9
+			column: BillingState
+
+		level BillingCity
+			lineageTag: f3978089-ae36-4c35-b17f-b2e83e9cf932
+			column: BillingCity
+
+	partition f_invoice_items-cbd9ca26-c107-49ec-afd6-406d030d7326 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "invoice_items.csv"),[Delimiter=",", Columns=5, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"InvoiceLineId", Int64.Type}, {"InvoiceId", Int64.Type}, {"TrackId", Int64.Type}, {"UnitPrice", type number}, {"Quantity", Int64.Type}}),
+				    #"Merged Queries" = Table.NestedJoin(#"Changed Type", {"InvoiceId"}, d_invoices, {"InvoiceId"}, "d_invoices", JoinKind.LeftOuter),
+				    #"Removed Columns" = Table.RemoveColumns(#"Merged Queries",{"InvoiceLineId"}),
+				    #"Expanded d_invoices" = Table.ExpandTableColumn(#"Removed Columns", "d_invoices", {"CustomerId", "InvoiceDate", "BillingAddress", "BillingCity", "BillingState", "BillingCountry", "BillingPostalCode", "Total"}, {"CustomerId", "InvoiceDate", "BillingAddress", "BillingCity", "BillingState", "BillingCountry", "BillingPostalCode", "Total"}),
+				    #"Removed Columns1" = Table.RemoveColumns(#"Expanded d_invoices",{"Total"})
+				in
+				    #"Removed Columns1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

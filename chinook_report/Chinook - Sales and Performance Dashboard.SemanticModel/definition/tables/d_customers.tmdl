@@ -1,0 +1,137 @@
+table d_customers
+	lineageTag: 92e5ee67-9050-4edf-9275-30ab6ff44d17
+
+	column CustomerId
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b229aae-93b9-4410-ac4e-2331959fdebd
+		summarizeBy: none
+		sourceColumn: CustomerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 8a0e9655-616b-430c-92be-f6ac6d5e9d1a
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: 05c419d5-4880-40b2-a3ae-57f4829e2e61
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column Address
+		dataType: string
+		lineageTag: b42fd51c-e871-4bb6-a78e-fd646b9d70c1
+		summarizeBy: none
+		sourceColumn: Address
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 7770de42-b599-43a0-a1f4-2189476e57fc
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 389d6a35-aea9-45b7-960a-0c14015537f6
+		dataCategory: StateOrProvince
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 1541c038-a7e2-48b9-b555-3420dcf36bf5
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column PostalCode
+		dataType: string
+		lineageTag: 29fee363-36e2-4c5b-8db7-551c5f8f2a55
+		dataCategory: PostalCode
+		summarizeBy: none
+		sourceColumn: PostalCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Phone
+		dataType: string
+		lineageTag: 22f34294-dde1-4653-96eb-05e7b1084640
+		summarizeBy: none
+		sourceColumn: Phone
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fax
+		dataType: string
+		lineageTag: e4fcebe2-e948-425d-a564-0bd8602ddf08
+		summarizeBy: none
+		sourceColumn: Fax
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: e6aed6ad-6f8b-409b-a324-2f645709b9bc
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column SupportRepId
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a5f0142-143f-428d-a78e-0d363d06c69e
+		summarizeBy: none
+		sourceColumn: SupportRepId
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Customer Territory'
+		lineageTag: fe3f52be-ed21-4d25-b64c-8cbe10a3190a
+
+		level Country
+			lineageTag: 451507da-ffa1-472e-bf42-efa34705edd8
+			column: Country
+
+		level State
+			lineageTag: e4251930-ea9d-45b6-830b-5147503b1e3f
+			column: State
+
+		level City
+			lineageTag: 50847fd6-9027-43b5-8905-fb5b1eda1c73
+			column: City
+
+	partition d_customers-9fca25d2-3b33-4a07-a6b4-8dd8e677d427 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "customers.csv"),[Delimiter=",", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"CustomerId", Int64.Type}, {"FirstName", type text}, {"LastName", type text}, {"Company", type text}, {"Address", type text}, {"City", type text}, {"State", type text}, {"Country", type text}, {"PostalCode", type text}, {"Phone", type text}, {"Fax", type text}, {"Email", type text}, {"SupportRepId", Int64.Type}}),
+				    #"Inserted Merged Column" = Table.AddColumn(#"Changed Type", "Customer Name", each Text.Combine({[FirstName], [LastName]}, " "), type text),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Inserted Merged Column",{"CustomerId", "Customer Name", "FirstName", "LastName", "Company", "Address", "City", "State", "Country", "PostalCode", "Phone", "Fax", "Email", "SupportRepId"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"FirstName", "LastName"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

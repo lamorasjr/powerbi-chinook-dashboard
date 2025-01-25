@@ -1,0 +1,35 @@
+table d_artists
+	lineageTag: e1a925e1-e909-44fa-a864-8e31a0448b75
+
+	column ArtistId
+		dataType: int64
+		formatString: 0
+		lineageTag: b955d0c4-b101-4be4-ba71-d57df13a5899
+		summarizeBy: none
+		sourceColumn: ArtistId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArtistName
+		dataType: string
+		lineageTag: a8510126-ba0f-4c8a-8258-232341747eec
+		summarizeBy: none
+		sourceColumn: ArtistName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_artists-60ec89e2-7c0e-40a4-935f-a135d7082e0f = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "artists.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"ArtistId", Int64.Type}, {"Name", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Name", "ArtistName"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

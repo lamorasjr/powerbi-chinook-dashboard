@@ -1,0 +1,197 @@
+table 'Measures Table'
+	lineageTag: 0239d0b3-faea-4ab2-bc54-2836b5779254
+
+	measure 'Total Sales' =
+			
+			SUMX(
+			    f_invoice_items,
+			    f_invoice_items[Quantity] * f_invoice_items[UnitPrice]
+			)
+		formatString: \$#,0.0;(\$#,0.0);\$#,0.0
+		displayFolder: Total Sales
+		lineageTag: 03975a95-afc6-4784-bfa6-dfb8a80b9309
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Order Qty' =
+			
+			DISTINCTCOUNT(
+			    f_invoice_items[InvoiceId]
+			)
+		formatString: #,0
+		displayFolder: Orders
+		lineageTag: 443bca69-c096-4697-aede-da0861b25b82
+
+		changedProperty = FormatString
+
+	measure 'Tracks Sold' =
+			
+			SUM(
+			    f_invoice_items[Quantity]
+			)
+		formatString: #,0
+		displayFolder: Tracks
+		lineageTag: 070647c1-8f60-48c1-be21-c1a46516be9d
+
+		changedProperty = FormatString
+
+	measure 'Total Sales LY' =
+			
+			CALCULATE(
+			    [Total Sales],
+			    DATEADD(
+			        'calendar'[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		displayFolder: Total Sales
+		lineageTag: d918b45d-ef53-46c6-93ba-80f92526c8c3
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Order Qty LY' =
+			
+			CALCULATE(
+			    [Order Qty],
+			    DATEADD(
+			        'calendar'[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		formatString: #,0
+		displayFolder: Orders
+		lineageTag: bf7e8064-e6c7-4e92-9e0e-480466cd07bd
+
+		changedProperty = FormatString
+
+	measure 'Tracks Sold LY' =
+			
+			CALCULATE(
+			    [Tracks Sold],
+			    DATEADD(
+			        'calendar'[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		formatString: #,0
+		displayFolder: Tracks
+		lineageTag: b8f39c51-f8bd-4d0f-b52d-f5cea09adc66
+
+		changedProperty = FormatString
+
+	measure 'Total Sales YoY' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    [Total Sales LY],
+			    0
+			)
+			-1
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Total Sales
+		lineageTag: 775ca90d-c476-4f62-9f1a-e447cdbcc235
+
+		changedProperty = FormatString
+
+	measure 'Order Qty YoY' =
+			
+			DIVIDE(
+			    [Order Qty],
+			    [Order Qty LY],
+			    0
+			)
+			-1
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Orders
+		lineageTag: aa62c13f-1c75-4705-b5bc-b911dd53660c
+
+		changedProperty = FormatString
+
+	measure 'Tracks Sold YoY' =
+			
+			DIVIDE(
+			    [Tracks Sold],
+			    [Tracks Sold LY],
+			    0
+			)
+			-1
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Tracks
+		lineageTag: cee2264e-24c1-4c96-b2b9-7ecd97ef919a
+
+		changedProperty = FormatString
+
+	measure 'Avg Track Price' =
+			
+			AVERAGE(
+			    f_invoice_items[UnitPrice]
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Tracks
+		lineageTag: 6333e6f9-74f5-48e0-a169-52f725ee5dba
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Track Price LY' =
+			
+			CALCULATE(
+			    [Avg Track Price],
+			    DATEADD(
+			        'calendar'[Date],
+			        -1,
+			        YEAR
+			    )
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Tracks
+		lineageTag: b26d0131-282c-4da9-9a84-ed04f7dcef2b
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Track Price YoY' =
+			
+			DIVIDE(
+			    [Avg Track Price],
+			    [Avg Track Price LY],
+			    0
+			)
+			-1
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: Tracks
+		lineageTag: 8f55ebf2-1188-4a20-a250-a5f2ababc248
+
+		changedProperty = FormatString
+
+	measure 'Github Url' = "https://github.com/lamorasjr/"
+		displayFolder: Urls
+		lineageTag: 8e2e71a6-8161-4d26-8dcc-d5a57db461f6
+		dataCategory: WebUrl
+
+	measure 'Dataset Url' = "https://www.sqlitetutorial.net/sqlite-sample-database/"
+		displayFolder: Urls
+		lineageTag: ba230a03-0d78-4ee8-9071-74fae87bb355
+
+	partition 'Measures Table-7b54dd6a-ea6a-476c-9c69-d1758aeeaf0e' = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

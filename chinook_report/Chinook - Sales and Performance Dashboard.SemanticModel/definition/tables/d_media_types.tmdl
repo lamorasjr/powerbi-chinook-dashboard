@@ -1,0 +1,35 @@
+table d_media_types
+	lineageTag: 60d9dc87-f354-4af5-a5b7-6a3d8ddba3f4
+
+	column MediaTypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: fd5a344c-a933-48c2-9a35-e74da0097c5b
+		summarizeBy: none
+		sourceColumn: MediaTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MediaType
+		dataType: string
+		lineageTag: 0bea8af1-8745-480e-a86c-180e7baeac7c
+		summarizeBy: none
+		sourceColumn: MediaType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition d_media_types-c029971d-c501-47f1-a4bb-4cdb4b767580 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "media_types.csv"),[Delimiter=",", Columns=2, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"MediaTypeId", Int64.Type}, {"Name", type text}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Name", "MediaType"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

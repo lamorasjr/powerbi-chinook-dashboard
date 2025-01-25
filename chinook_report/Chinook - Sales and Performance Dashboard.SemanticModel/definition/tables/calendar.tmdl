@@ -1,0 +1,179 @@
+table calendar
+	lineageTag: b08428c9-42ae-4049-bcbe-50418638b909
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: e33fad92-80b2-4572-9e61-1c212d2f2a73
+		summarizeBy: none
+		sourceColumn: Date
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 44346ffc-da3b-4467-96bf-623aabafd311
+		summarizeBy: none
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = User
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 387f1eeb-1709-4b55-a2f4-026247789214
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 7d3a856d-a075-4721-a442-73e9043dcbc9
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: a24fac82-5f13-488b-9729-3641b4e7acec
+		summarizeBy: none
+		sourceColumn: Month Name
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: c1a2aa2e-85a0-4b68-a56d-2213a5839e28
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = User
+
+	column 'Start of Quarter'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 05b6fe0e-afcd-4934-aec9-e3dde638c17b
+		summarizeBy: none
+		sourceColumn: Start of Quarter
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Quarter Name'
+		dataType: string
+		lineageTag: 4eb44d11-9f96-4029-961d-4bd9de564208
+		summarizeBy: none
+		sourceColumn: Quarter Name
+		sortByColumn: Quarter
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week of Month'
+		dataType: int64
+		formatString: 0
+		lineageTag: eecf328d-0d30-42fc-9973-4fa0f568804f
+		summarizeBy: none
+		sourceColumn: Week of Month
+
+		annotation SummarizationSetBy = User
+
+	column 'Start of Week'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 06b39ce1-798e-4d30-a3ff-66d9e5c08212
+		summarizeBy: none
+		sourceColumn: Start of Week
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Day of Week'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c64c18e-411d-4559-815a-ae3f00d38dc3
+		summarizeBy: none
+		sourceColumn: Day of Week
+
+		annotation SummarizationSetBy = User
+
+	column 'Day Name'
+		dataType: string
+		lineageTag: 435f642a-148b-4a1c-aac0-bdfd77dec343
+		summarizeBy: none
+		sourceColumn: Day Name
+		sortByColumn: 'Day of Week'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short Name' =
+			
+			FORMAT(
+			    'calendar'[Date],
+			    "mmm"
+			)
+		lineageTag: 10b4060f-3032-45e1-8ea1-e91c4f6be4b8
+		summarizeBy: none
+		sortByColumn: Month
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calendar-19379198-bfee-4ff2-ba8d-fc0da1ba0d96 = m
+		mode: import
+		source =
+				let
+				    #"Add Start Date" = #date(Date.Year(List.Min(#"f_invoice_items"[InvoiceDate])), Date.Month(List.Min(#"f_invoice_items"[InvoiceDate])), 1),
+				    #"Add End Date" = #date(Date.Year(List.Max(#"f_invoice_items"[InvoiceDate])), 12, 31),
+				    #"Number Of Dates" = Duration.Days(#"Add End Date" - #"Add Start Date") + 1,
+				    Source = List.Dates(#"Add Start Date", #"Number Of Dates", #duration(1, 0, 0, 0)),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Renamed Columns" = Table.RenameColumns(#"Converted to Table",{{"Column1", "Date"}}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Renamed Columns",{{"Date", type date}}),
+				    #"Inserted Year" = Table.AddColumn(#"Changed Type", "Year", each Date.Year([Date]), Int64.Type),
+				    #"Inserted Month" = Table.AddColumn(#"Inserted Year", "Month", each Date.Month([Date]), Int64.Type),
+				    #"Inserted Start of Month" = Table.AddColumn(#"Inserted Month", "Start of Month", each Date.StartOfMonth([Date]), type date),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Start of Month", "Month Name", each Date.MonthName([Date]), type text),
+				    #"Inserted Quarter" = Table.AddColumn(#"Inserted Month Name", "Quarter", each Date.QuarterOfYear([Date]), Int64.Type),
+				    #"Inserted Start of Quarter" = Table.AddColumn(#"Inserted Quarter", "Start of Quarter", each Date.StartOfQuarter([Date]), type date),
+				    #"Added Custom" = Table.AddColumn(#"Inserted Start of Quarter", "Quarter Name", each "Q" & Number.ToText([Quarter])),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Quarter Name", type text}}),
+				    #"Inserted Week of Month" = Table.AddColumn(#"Changed Type1", "Week of Month", each Date.WeekOfMonth([Date]), Int64.Type),
+				    #"Inserted Start of Week" = Table.AddColumn(#"Inserted Week of Month", "Start of Week", each Date.StartOfWeek([Date]), type date),
+				    #"Inserted Day of Week" = Table.AddColumn(#"Inserted Start of Week", "Day of Week", each Date.DayOfWeek([Date]), Int64.Type),
+				    #"Inserted Day Name" = Table.AddColumn(#"Inserted Day of Week", "Day Name", each Date.DayOfWeekName([Date]), type text)
+				in
+				    #"Inserted Day Name"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

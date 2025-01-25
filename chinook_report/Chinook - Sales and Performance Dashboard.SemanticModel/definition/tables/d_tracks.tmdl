@@ -1,0 +1,98 @@
+table d_tracks
+	lineageTag: e0440ef3-fe56-47af-87bf-6757e6c4d9af
+
+	column TrackId
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a2826ca-2a15-41a9-b8d3-d92425464bc8
+		summarizeBy: none
+		sourceColumn: TrackId
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrackName
+		dataType: string
+		lineageTag: 19b59f0b-cc33-46fd-9e99-b825e015fbb2
+		summarizeBy: none
+		sourceColumn: TrackName
+
+		annotation SummarizationSetBy = Automatic
+
+	column AlbumId
+		dataType: int64
+		formatString: 0
+		lineageTag: 27284c69-3533-4bc7-9861-0e9f6d3a88a5
+		summarizeBy: none
+		sourceColumn: AlbumId
+
+		annotation SummarizationSetBy = Automatic
+
+	column MediaTypeId
+		dataType: int64
+		formatString: 0
+		lineageTag: 8556ed17-d9e6-4ac2-a723-ece5aa62a022
+		summarizeBy: none
+		sourceColumn: MediaTypeId
+
+		annotation SummarizationSetBy = Automatic
+
+	column GenreId
+		dataType: int64
+		formatString: 0
+		lineageTag: b869c83f-916a-4460-a3a5-27951556cb20
+		summarizeBy: none
+		sourceColumn: GenreId
+
+		annotation SummarizationSetBy = Automatic
+
+	column Composer
+		dataType: string
+		lineageTag: b58a785f-4872-478e-8974-8b7a232aeb68
+		summarizeBy: none
+		sourceColumn: Composer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milliseconds
+		dataType: int64
+		formatString: 0
+		lineageTag: aee4c9c7-be4a-4c51-8d61-bc0e6e69f4e9
+		summarizeBy: sum
+		sourceColumn: Milliseconds
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bytes
+		dataType: int64
+		formatString: 0
+		lineageTag: 06079461-da18-4487-a62b-e085e9b17689
+		summarizeBy: sum
+		sourceColumn: Bytes
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitPrice
+		dataType: double
+		lineageTag: e6983e60-921d-4301-bb78-9b56f5558abb
+		summarizeBy: sum
+		sourceColumn: UnitPrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition d_tracks-b33d05de-473b-40e3-9f5e-550d1f53b0a0 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(dir_source_data & "tracks.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"TrackId", Int64.Type}, {"Name", type text}, {"AlbumId", Int64.Type}, {"MediaTypeId", Int64.Type}, {"GenreId", Int64.Type}, {"Composer", type text}, {"Milliseconds", Int64.Type}, {"Bytes", Int64.Type}, {"UnitPrice", type number}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Name", "TrackName"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

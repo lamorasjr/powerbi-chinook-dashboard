@@ -1,0 +1,34 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBIDesktopVersion = 2.139.1678.0 (24.12)+2a034ab280bddf891eb7bb9ebfe6996f9c3a3196
+
+annotation PBI_QueryOrder = ["dir_source_data","d_playlist_track","d_playlists","d_tracks","d_albums","d_artists","d_customers","d_empolyees","d_genres","f_invoice_items","d_invoices","d_media_types","calendar","Measures Table"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table d_playlist_track
+ref table DateTableTemplate_ebcc13a1-a56b-4e12-95a3-4ffed5d62693
+ref table d_playlists
+ref table d_tracks
+ref table d_albums
+ref table d_artists
+ref table d_customers
+ref table d_empolyees
+ref table LocalDateTable_2ccbc06a-b949-4d1e-9f33-8f01f36cba14
+ref table LocalDateTable_2df1777d-611f-4633-8d8e-a17e09acee59
+ref table d_genres
+ref table f_invoice_items
+ref table d_media_types
+ref table calendar
+ref table 'Measures Table'
+
+ref cultureInfo en-US
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Chinook - Sales and Performance Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6f3e627c-191e-477d-bded-f07c5830d9aa"
+  }
+}

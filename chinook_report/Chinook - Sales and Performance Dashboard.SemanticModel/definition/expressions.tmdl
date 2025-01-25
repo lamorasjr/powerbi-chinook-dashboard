@@ -1,0 +1,21 @@
+expression d_invoices =
+		let
+		    Source = Csv.Document(File.Contents(dir_source_data & "invoices.csv"),[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+		    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"InvoiceId", Int64.Type}, {"CustomerId", Int64.Type}, {"InvoiceDate", type datetime}, {"BillingAddress", type text}, {"BillingCity", type text}, {"BillingState", type text}, {"BillingCountry", type text}, {"BillingPostalCode", type text}, {"Total", type number}}),
+		    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type",{{"InvoiceDate", type date}})
+		in
+		    #"Changed Type1"
+	lineageTag: c2301f76-8809-451b-a4cb-650d3a8cc8fc
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression dir_source_data = "C:\Users\lamoras\workspace\powerbi-chinook-dashboard\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: decc509f-7191-4304-99d9-d9f8d95a90ad
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
