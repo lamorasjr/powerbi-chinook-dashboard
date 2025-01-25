@@ -36,6 +36,8 @@ Additionally, this project includes a Python script to extract table data from a
 - A deeper analysis at the Sales Agent level (3) revealed that the agent with the highest margin contribution experienced a sharp decline, with Orders down by -23.8% vs. PY and Revenue down by -33.5% vs. PY.
 
 - From a regional perspective (4), the USA, which historically contributed the most to overall Revenue and Sales, showed a notable decrease in Revenue (-33.5% vs. PY) and Orders (-23.8% vs. PY) this year.
+
+- To revievitalize sales during Q1 and Q2, seasonal campaigns or discounts during the first two quarters to drive customer engagement and boost early-year sales. Also, focus on retaining existing customers by offering loyalty rewards or exclusive early-year benefits can boost re-buying along the year.
     
     <img src=assets\insight_1.png alt="insight_1" width="500"/>
 
